@@ -48,4 +48,14 @@ class BoardService (
         )
         return boardDto
     }
+
+    fun update(boardDto: BoardDto) { //id로 엔티티를 불러오고 엔티티 값을 직접 수정하는 로직, boardDto를 받아옴.
+        val id: Long = boardDto.id!! //id가 null일 수도 있다고 선언했는데, !!를 붙히면 절대 null일 수 없다는 뜻.
+        val boardEntity = boardRepository.findById(id).get() //얘를 통해서 엔티티를 받아옴
+        //받은 boardEntity를 수정해야함
+        boardEntity.update(boardDto) //boardEntity는 자동으로 업데이트가 됨.
+        //save로직은 JPA에서 영속성 컨텍스트상으로 관리를 하기 때문에 update한 시점에 save가 자동적으로 됨.
+        //지금은 가독성을 위해 아래의 save 코드 작성.
+        boardRepository.save(boardEntity) //수정된 값을 저장함.
+    }
 }

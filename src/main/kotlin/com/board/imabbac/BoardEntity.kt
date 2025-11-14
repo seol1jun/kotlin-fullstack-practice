@@ -12,11 +12,17 @@ class BoardEntity (
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     val id: Long? = null,
 
-    val title: String,
+    var title: String,
 
-    val content: String,
+    var content: String,
 
-    val name: String,
+    var name: String,
 
-    )
+    ) {
+    fun update(boardDto: BoardDto) {
+        this.title = boardDto.title
+        this. content = boardDto.content
+        this.name = boardDto.name
+    }
+}
 //
