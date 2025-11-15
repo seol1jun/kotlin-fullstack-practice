@@ -58,4 +58,8 @@ class BoardService (
         //지금은 가독성을 위해 아래의 save 코드 작성.
         boardRepository.save(boardEntity) //수정된 값을 저장함.
     }
+
+    fun deleteById(id : Long) {
+        boardRepository.deleteById(id)
+    }
 }

@@ -38,8 +38,12 @@ class BoardController (
     ) {
         boardService.update(boardDto)//boardDto를 받아온 걸 service로 넘겨야함.
     }
-
     //crud 중 rud는 id값을 파라메터로 받아야 읽든지 수정하든지 삭제하든지 함.
     //patch는 body값을 통해서 확인할 수도 있기에 body값을 파라미터로 받음.
+    //RestApi를 통해서 클라이언트와 통신하는 걸 포스트맨으로 지금까지는 구현
+    @DeleteMapping("/{id}")
+    fun deleteById(@PathVariable id : Long) {//PathVariable로 id를 가져옴
+        boardService.deleteById(id)
+    }
 
 }
