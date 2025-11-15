@@ -45,5 +45,8 @@ class BoardController (
     fun deleteById(@PathVariable id : Long) {//PathVariable로 id를 가져옴
         boardService.deleteById(id)
     }
+    //api 연동을 하기 위해선 api 문서가 있어야함.
+    //api문서를 만들기 위해 swagger라는 라이브러리를 사용
+    //스프링 컨트롤러에 미리 작성해둔 엔드포인트를 보고 스웨거가 api 형태로 제공
 
 }
